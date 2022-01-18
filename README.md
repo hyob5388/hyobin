@@ -107,7 +107,7 @@ public class Center {
 }
 ```
 
-Starter 
+Starter 클래스
 ``` JAVA
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
