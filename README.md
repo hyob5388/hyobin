@@ -51,7 +51,8 @@ public class UserVo {
 	}
 	
 }
-
+-------------------------------
+-------------------------------
 Center 클래스
 ``` JAVA
 import java.util.ArrayList;
@@ -104,7 +105,8 @@ public class Center {
 		System.exit(0);
 	}
 }
-
+-------------------------------
+-------------------------------
 Starter 
 ``` JAVA
 import java.io.BufferedReader;
