@@ -26,10 +26,8 @@
 
 -----------------------------------
 ### Code 설명
-
+UserVo 클래스
 ``` JAVA
-package chat;
-
 public class UserVo {
 	
 	String id;
@@ -54,9 +52,8 @@ public class UserVo {
 	
 }
 
-
-package chat;
-
+Center 클래스
+``` JAVA
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -108,8 +105,8 @@ public class Center {
 	}
 }
 
-package chat;
-
+Starter 
+``` JAVA
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
