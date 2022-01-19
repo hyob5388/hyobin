@@ -34,7 +34,7 @@ public class UserVo {
 	
 	String comment;
 
-	public String getId() {
+	public String getId() {	//아이디 저장
 		return id;
 	}
 
@@ -42,7 +42,7 @@ public class UserVo {
 		this.id = id;
 	}
 
-	public String getComment() {
+	public String getComment() {	//댓글 저장
 		return comment;
 	}
 
@@ -61,24 +61,24 @@ import java.util.Scanner;
 
 public class Center {
 	
-	List<UserVo> comments = new ArrayList<>();
+	List<UserVo> comments = new ArrayList<>();	//기능1의 작성했던 댓글들을 관리하는 리스트
 
 	@SuppressWarnings("resource")
 	public void register(List<String> swearWords) throws Exception{
 		UserVo userVo = new UserVo();
 		Scanner sc = new Scanner(System.in);
 		System.out.print("아이디: ");
-		userVo.setId(sc.nextLine());
+		userVo.setId(sc.nextLine());	//아이디를 입력받음
 		System.out.print("댓글");
-		String comment = sc.nextLine();
+		String comment = sc.nextLine();	//댓글을 입력받음
 		
-		for(String swearWord : swearWords) {
+		for(String swearWord : swearWords) {	//텍스트 파일의 비속어와 댓글의 비속어를 비교
 			if(comment.indexOf(swearWord) >= 0) {
 				StringBuilder sb = new StringBuilder();
 				for(int i = 0; swearWord.length() > i; i++) {
-					sb.append("*");
+					sb.append("*");	//비속어를 변경해줌
 				}
-				comment = comment.replaceAll(swearWord, sb.toString());
+				comment = comment.replaceAll(swearWord, sb.toString());	//필터링 된 댓글로 댓글창에 저장
 			}
 		}
 		userVo.setComment(comment);
@@ -91,7 +91,7 @@ public class Center {
 		System.out.println("");
 	}
 	
-	public void showComment() {
+	public void showComment() {	//기능2의 댓글창을 보여줌
 		for(UserVo comment : comments) {
 			System.out.println(comment.getId() + ": " + comment.getComment());
 		}
@@ -100,7 +100,7 @@ public class Center {
 		System.out.println("");
 	}
 	
-	public void exit() {
+	public void exit() {	//기능3 종료
 		System.out.println("종료되었습니다");
 		System.exit(0);
 	}
@@ -120,12 +120,12 @@ public class Starter {
 	
 	private static Center center = new Center();
 	
-	private static String FileDirectory = "C:/Users/USER/Desktop/fword_list.txt";
+	private static String FileDirectory = "텍스트 파일 경로";
 
 	public static void main(String[] args) throws Exception{
 		while (true) {
 			Scanner sc = new Scanner(System.in);
-			int num = 0;
+			int num = 0;	//num이라는 변수에 기능 값을 입력받음
 			
 			System.out.println("[1] :댓글 입력하기 ");
 			System.out.println("[2] : 채팅창 보기");
@@ -135,7 +135,7 @@ public class Starter {
 			try {
 				num = sc.nextInt();
 			}catch(Exception e) {
-				System.out.println("[error: 번호 입력 오류]");
+				System.out.println("[error: 번호 입력 오류]");	//[1][2][0] 숫자 외에 다른 숫자 입력시
 			}
 			
 			List<String> swearWords = swearWord();
@@ -158,11 +158,11 @@ public class Starter {
 		FileReader file;
 		List<String> swearWord = new ArrayList<>();
 		try {
-			file = new FileReader("C:/Users/USER/Desktop/fword_list.txt");
+			file = new FileReader("텍스트 파일 경로");
 			BufferedReader reader = new BufferedReader(file);
 			String word = "";
 			
-			while ((word = reader.readLine()) != null) {
+			while ((word = reader.readLine()) != null) {	//txt파일의 비속어를 list에 저장
 				swearWord.add(word);
 			}
 			reader.close();
