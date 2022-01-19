@@ -38,7 +38,7 @@ public class UserVo {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(String id) {	인스턴스 멤버인 필드의 아이디
 		this.id = id;
 	}
 
@@ -46,7 +46,7 @@ public class UserVo {
 		return comment;
 	}
 
-	public void setComment(String comment) {
+	public void setComment(String comment) {	인스턴스 멤버인 필드의 댓글
 		this.comment = comment;
 	}
 	
@@ -78,7 +78,8 @@ public class Center {
 				for(int i = 0; swearWord.length() > i; i++) {
 					sb.append("*");	//비속어를 변경해줌
 				}
-				comment = comment.replaceAll(swearWord, sb.toString());	//필터링 된 댓글로 댓글창에 저장
+				comment = comment.replaceAll(swearWord, sb.toString());	
+				//필터링 된 댓글로 댓글창에 저장
 			}
 		}
 		userVo.setComment(comment);
@@ -133,9 +134,10 @@ public class Starter {
 			System.out.print("기능을 선택해주세요: ");
 			
 			try {
-				num = sc.nextInt();
+				num = sc.nextInt();	
 			}catch(Exception e) {
-				System.out.println("[error: 번호 입력 오류]");	//[1][2][0] 숫자 외에 다른 숫자 입력시
+				System.out.println("[error: 번호 입력 오류]");	
+				//[1][2][0] 숫자 외에 다른 숫자 입력시
 			}
 			
 			List<String> swearWords = swearWord();
@@ -166,7 +168,7 @@ public class Starter {
 				swearWord.add(word);
 			}
 			reader.close();
-		} catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {	//txt파일 읽어오는데 문제시 예외 발생
 			e.printStackTrace();
 		}
 		return swearWord;
